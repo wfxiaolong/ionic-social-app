@@ -1,0 +1,38 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div class="h1 title login-title" >个人资料</div>
+</ion-header-bar>
+<ion-view>
+    <ion-content has-bouncing="true" overflow-scroll="false">
+        <ion-list>
+            <div class="blank-h12"></div>
+            <img src="img/mike.png" style="width: 120px;height: 120px;display: block;margin: auto;" ng-click="changeImg()">
+            <div class="blank-h12"></div>
+            <ion-item class="mine-msg-item item">
+                <span class="msg">真实姓名：</span>
+                <input class="textfield ng-pristine ng-untouched" style="border: 0;" placeholder="请输入姓名" ng-model="msg.name">
+            </ion-item>
+            <ion-item class="mine-msg-item item">
+                <span class="msg">性别：</span>
+                <select style="width: 120px;">
+                    <option value ="male">男</option>
+                    <option value ="female">女</option>
+                </select>
+            </ion-item>
+            <ion-item class="mine-msg-item item">
+                <span class="msg">地区：</span>
+                <input style="background: #fff;display: -webkit-inline-box;padding: 0px;width: 280px;" type="text" placeholder="请选择地区" readonly  ng-model="template.area" ng-click="showCitySelect()">
+            </ion-item>
+            <ion-item class="mine-msg-item item">
+                <span class="msg">生日：</span>
+                <input style="display: -webkit-inline-box;padding: 0px;" class="textfield ng-pristine ng-untouched ng-valid" type="date" ng-model="msg.birthday">
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <!--选择地区-->
+    <div class="js-citySelestNode tab-nav tabs hide-on-keyboard-open"  style="padding:0 10px;width:100%;height:auto;background-color:#fff;"></div>
+</ion-view>

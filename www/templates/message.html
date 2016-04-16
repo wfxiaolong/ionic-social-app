@@ -1,0 +1,36 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="h1 title login-title" >消息</div>
+</ion-header-bar>
+<ion-view>
+    <ion-content has-bouncing="true" overflow-scroll="false">
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap">
+                <img ng-src="img/mike.png">
+                <h2>mike的消息</h2>
+                <p>准备吃饭了...</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/groupmsg">
+                <img ng-src="img/mike.png">
+                <h2>天翼足球协会</h2>
+                <p>发布了一个新活动</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/activitymsg">
+                <img ng-src="img/mike.png">
+                <h2>mike的消息</h2>
+                <p>发布了一个新帖子</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,86 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="h1 title login-title" >朋友圈</div>
+    <div class="buttons">
+        <a ng-show="type=='group'" class="button login-register" href="#/tab/createGroup">
+            创建群组
+        </a>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content has-bouncing="true" overflow-scroll="false">
+        <div class="row" style="border-bottom: 1px solid lightgray;">
+            <div class="col tabs-striped">
+                <div class="col-demo main-select" ng-class="{activity : type == 'friend'}" ng-click="changeType(0)">好友</div>
+            </div>
+            <div class="col">
+                <div class="col-demo main-select" ng-class="{activity : type == 'group'}" ng-click="changeType(1)">群组</div>
+            </div>
+            <div class="col">
+                <div class="col-demo main-select" ng-class="{activity : type == 'focus'}" ng-click="changeType(2)">关注</div>
+            </div>
+        </div>
+
+        <!-- 类型列表-->
+        <ion-list>
+            <!-- 好友-->
+            <div ng-if="type == 'friend'">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/friendDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>mike</h2>
+                    <p>准备吃饭了...</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/friendDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>天翼足球协会</h2>
+                    <p>准备吃饭了...</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+            </div>
+
+            <!-- 群-->
+            <div ng-if="type == 'group'">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/groupDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>足球协会</h2>
+                    <p>准备吃饭了...</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/groupDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>篮球协会</h2>
+                    <p>发布了一个新活动</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+            </div>
+
+            <!-- focus-->
+            <div ng-if="type == 'focus'">
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/friendDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>mike</h2>
+                    <p>关注：200</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/groupDetail">
+                    <img ng-src="img/mike.png">
+                    <h2>天翼足球协会</h2>
+                    <p>关注：2000</p>
+                    <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

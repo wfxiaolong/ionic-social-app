@@ -1,0 +1,18 @@
+<ion-header-bar align-title="center" class="bgc-orange bar bar-header">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <input ng-model="tag" class="tab-search" auto-focus-when="focus" placeholder="请输入搜索关键词" ng-model="searchInput">
+    <i class="icon ion-ios-search tab-search-cur"></i>
+    <i class="icon ion-close-circled tab-search-close-cur" ng-click="delete()"></i>
+    <a class="tab-cancel-btn" ng-click="search()">搜索</a>
+</ion-header-bar>
+<ion-view>
+    <ion-content>
+
+    </ion-content>
+
+    <!--选择地区-->
+    <div class="js-citySelestNode tab-nav tabs hide-on-keyboard-open"  style="padding:0 10px;width:100%;height:auto;background-color:#fff;"></div>
+</ion-view>

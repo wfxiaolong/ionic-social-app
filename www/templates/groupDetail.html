@@ -1,0 +1,71 @@
+<ion-header-bar align-title="center" class="bar-stable">
+  <div class="buttons">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+    </button>
+  </div>
+  <div class="h1 title login-title" >组队信息</div>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/mike.png">
+        <h2>篮球协会</h2>
+        <p>
+          <a href="#" class="subdued">组员：200</a>
+          <a href="#" class="subdued">粉丝：300</a>
+        </p>
+      </div>
+      <div class="item" style="padding: 4px;">
+        <div class="row">
+          <div class="col group-cell-select" ng-class="{gact:type=='post'}" ng-click="changeType(0)">组员帖子</div>
+          <div class="col group-cell-select" ng-class="{gact:type=='act'}" ng-click="changeType(1)">组活动</div>
+        </div>
+      </div>
+      <div class="list" ng-show="type=='post'">
+        <a class="item item-thumbnail-left" href="#/tab/post">
+          <img src="img/perry.png">
+          <h2>帖子199</h2>
+          <p class="friend-detail-p">日系漫画分....央视国企乱七八糟....奇奇怪收拾收放大师傅是的拾fdaf 怪...</p>
+        </a>
+        <a class="item item-thumbnail-left" href="#/tab/post">
+          <img src="img/perry.png">
+          <h2>帖子198</h2>
+          <p class="friend-detail-p">日系漫画分....央视国企乱七八糟....奇奇怪收拾收放大师傅是的拾fdaf 怪...</p>
+        </a>
+      </div>
+      <div class="list" ng-show="type=='act'">
+        <a class="item item-thumbnail-left" href="#/tab/act">
+          <img src="img/perry.png">
+          <h2>活动199</h2>
+          <p class="friend-detail-p">足球联赛，中间爱的风景啊发的风景啊死；飞机发动机发卡机；圣诞节发酒疯看得见；副科级</p>
+        </a>
+        <a class="item item-thumbnail-left" href="#/tab/act">
+          <img src="img/perry.png">
+          <h2>活动198</h2>
+          <p class="friend-detail-p">足球联赛，中间爱的风景啊发的风景啊死；飞机发动机发卡机；圣诞节发酒疯看得见；副科级</p>
+        </a>
+        <a class="item item-thumbnail-left" href="#/tab/act">
+          <img src="img/perry.png">
+          <h2>活动198</h2>
+          <p class="friend-detail-p">足球联赛，中间爱的风景啊发的风景啊死；飞机发动机发卡机；圣诞节发酒疯看得见；副科级</p>
+        </a>
+        <a class="item item-thumbnail-left" href="#/tab/act">
+          <img src="img/perry.png">
+          <h2>活动199</h2>
+          <p class="friend-detail-p">足球联赛，中间爱的风景啊发的风景啊死；飞机发动机发卡机；圣诞节发酒疯看得见；副科级</p>
+        </a>
+      </div>
+    </div>
+    <div class="blank-h44"></div>
+  </ion-content>
+</ion-view>
+
+<div class="tabs">
+  <a class="tab-item">
+    马上关注
+  </a>
+  <a class="tab-item">
+    申请加入
+  </a>
+</div>

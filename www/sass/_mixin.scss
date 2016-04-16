@@ -1,0 +1,304 @@
+@charset "utf-8";
+//-------------------------------- 
+// @authors: xlong
+// @desc: DaMai UI mixin
+// @time: 2015-08-06
+//--------------------------------
+
+// 默认配置
+//-----------------------------------------------------
+$dpi: 2 !default;   //屏幕密度
+$isMobile: false !default; //是否是移动端
+
+// 模盒相关
+//-----------------------------------------------------
+// 设置box-sizing
+@mixin bsz($val) {
+    -webkit-box-sizing:$val;
+    box-sizing:$val;    
+}
+
+// dp转换，设计稿尺寸 / 屏幕密度
+@function dp($val){
+    @return ($val / $dpi ) + px;
+}
+
+// rem转换, html设置font-size: 62.5%, 1rem = 10px
+@function rem($val) {
+    @return ($val / $dpi / 10) + rem;
+}
+
+// 返回pc、移动端对应尺寸
+@function size($val) {
+    $re:0;
+    @if $isMobile == false {
+        // pc
+        $re : dp($val);        
+    } @else {
+        // mobile
+        $re : rem($val);
+    }
+    
+    @return $re;
+}
+
+// 设置高&行高
+@mixin hl($val){
+    height:$val;
+    line-height:$val;
+}
+
+// 设置最小高度
+@mixin min-height($h) {
+    min-height: $h;
+    height: auto !important;
+    height: $h;
+}
+
+// 相对容器宽度百分比
+@function per-w($val, $win_w:640) {
+    @return $val / $win_w * 100%;
+}
+
+// 相对容器高度百分比
+@function per-h($val,$win_h:1008) {
+    @return $val / $win_h * 100%;
+}
+
+// 定位相关
+//-----------------------------------------------------
+// 绝对定位水平垂直居中
+@mixin pos-center($width, $height) {
+    margin-left: -($width/2);
+    margin-top: -($height/2);
+    width: $width;
+    height: $height;
+}
+
+// 相对顶部固定定位
+@mixin pos-fixed-top($top:300) {
+    position: fixed;
+    _position:absolute; _top:expression(eval(documentElement.scrollTop+#{$top}));
+}
+
+// 相对底部固定定位
+@mixin pos-fixed-bottom($bottom:0) {
+    position: fixed;bottom:$bottom;margin-bottom: $bottom;
+    _position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+} 
+
+// 设置透明度
+@mixin opacity($alpha) {
+    opacity:$alpha;
+    filter:alpha(opacity=$alpha * 100);
+}
+
+// 背景相关
+//-----------------------------------------------------
+// 半透明色背景
+@mixin transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    background-color: transparent;
+    zoom: 1;
+    background-color: $rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+}
+
+// 设置背景(宽、高、背景图)
+@mixin set-bg($img) {
+    $w: image-width($img); $h: image-height($img);
+    @if $isMobile == true {
+        width:$w / $dpi;
+        height:$h / $dpi;
+        background-size: 100%;
+    } @else {
+         width:$w;
+         height:$h;
+    }
+    background-image: url(#{$img});background-repeat: no-repeat;
+}
+
+// 设置背景wap版
+@mixin set-bg-m($img) {
+    $w: image-width($img); $h: image-height($img);
+    
+    width:$w / $dpi;
+    height:$h / $dpi;
+    background-size: 100%;
+    background-image: url(#{$img});background-repeat: no-repeat;
+}
+
+// 设置背景图，宽高百分比自适应
+@mixin set-bg-per($img) {
+    $w: image-width($img); $h: image-height($img);
+    width:per-w($w / 1px);height:per-h($h / 1px) + 4%;background-image: url(#{$img});background-size: 100%; background-repeat: no-repeat;
+}
+
+// @name  : sprite
+// @desc  : 合并精灵图
+// @author: bimgle
+// @parm  : $filename : 要合并的图片资源所在目录名称
+// @parm  : $p-spacing: 每个图片间距
+// @parm  : $p-layout : 精灵图排列模式 {vertical(垂直) | horizontal(水平) | diagonal(对角线) | smart(智能)}
+// @parm  : $per      : 使用百分比定位 
+@mixin sprite($filename, $p-spacing:0px, $p-layout:vertical, $per:false) {
+    $img: sprite-map("#{$filename}/*.png", $spacing:$p-spacing, $layout:$p-layout);
+    $name: sprite-names($img);
+
+    @if $isMobile == true {
+        background: {
+            image: sprite-url($img);
+            repeat: no-repeat;
+            size: sprite-width($img) / $dpi sprite-height($img) / $dpi;
+        }
+        @each $val in $name {
+            $this-url: sprite-file($img, #{$val});
+            $tmp-pos: sprite-position($img, #{$val});
+            $pos: nth($tmp-pos,1) / $dpi nth($tmp-pos,2) / $dpi;
+
+            @if $per == true {
+                $pos: sprite-position($img, #{$val}, 0, 0,true);    //百分比定位
+            }
+            
+            @at-root .#{$filename}-#{$val} {
+                width: image-width($this-url) / $dpi;
+                height: image-height($this-url) / $dpi;
+                background-position: $pos;
+            }
+        }
+    } @else {
+        background: {
+            image: sprite-url($img);
+            repeat: no-repeat;
+            size: sprite-width($img) sprite-height($img);
+        }
+        @each $val in $name {
+            $this-url: sprite-file($img, #{$val});
+            $pos: sprite-position($img, #{$val});
+
+            @if $per == true {
+                $pos: sprite-position($img, #{$val}, 0, 0,true);    //百分比定位
+            }
+            
+            @at-root .#{$filename}-#{$val} {
+                width: image-width($this-url);
+                height: image-height($this-url);
+                background-position: $pos;
+            }
+        }
+    }    
+}
+
+// @name  : sprite-m
+// @desc  : 合并精灵图wap版
+// @author: bimgle
+// @parm  : $filename : 要合并的图片资源所在目录名称
+// @parm  : $p-spacing: 每个图片间距
+// @parm  : $p-layout : 精灵图排列模式 {vertical(垂直) | horizontal(水平) | diagonal(对角线) | smart(智能)}
+// @parm  : $per      : 使用百分比定位 
+@mixin sprite-m($filename, $p-spacing:0px, $p-layout:vertical, $per:false) {
+    $img: sprite-map("#{$filename}/*.png", $spacing:$p-spacing, $layout:$p-layout);
+    $name: sprite-names($img);
+
+    background: {
+        image: sprite-url($img);
+        repeat: no-repeat;
+        size: sprite-width($img) / $dpi sprite-height($img) / $dpi;
+    }
+    @each $val in $name {
+        $this-url: sprite-file($img, #{$val});
+        $tmp-pos: sprite-position($img, #{$val});
+        $pos: nth($tmp-pos,1) / $dpi nth($tmp-pos,2) / $dpi;
+
+        @if $per == true {
+            $pos: sprite-position($img, #{$val}, 0, 0,true);    //百分比定位
+        }
+        
+        @at-root .#{$filename}-#{$val} {
+            width: image-width($this-url) / $dpi;
+            height: image-height($this-url) / $dpi;
+            background-position: $pos;
+        }
+    }
+}
+
+// 文字相关
+//-----------------------------------------------------
+// 字体：微软雅黑
+@mixin ff-yahei() {
+    font-family: \5FAE\8F6F\96C5\9ED1;
+}
+// 字体：宋体
+@mixin ff-song() {
+    font-family: \5B8B\4F53;
+}
+// 字体：黑体
+@mixin ff-heiti() {
+    font-family: \9ED1\4F53;
+}
+// 隐藏文字
+@mixin hidetxt() {
+    overflow:hidden;font-size: 0;line-height: 0;
+}
+
+// 其它
+//-----------------------------------------------------
+//三角箭头
+@mixin arrow($color:black,$size:4px,$mode:b){
+    width:0px; height:0px; font-size:0; overflow:hidden; border-width:$size; vertical-align:middle;
+    $style:null;
+    @if $mode == t {
+        $style:transparent transparent $color transparent; border-style:dashed dashed solid dashed;
+    } @else if $mode == r {
+        $style:transparent transparent transparent $color; border-style:dashed dashed dashed solid;
+    } @else if $mode == b {
+        $style:$color transparent transparent; border-style:solid dashed dashed dashed;
+    } @else if $mode == l {
+        $style:transparent $color transparent transparent; border-style:dashed solid dashed dashed;
+    }
+    border-color:$style;
+}
+
+// 媒体查询
+@mixin media($res){
+  @media screen and ( $res )
+  {
+    @content;
+  }
+}
+
+// 开启GPU加速(谨慎使用)
+@mixin opengpu(){
+    -webkit-transform:translate3d(0, 0, 0);
+    -moz-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+
+// 清除浮动
+@mixin clearfix() {
+    *zoom: 1;
+    &:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+}
+
+// 两端对齐
+%justify {
+    text-align:justify;
+    text-align-last:justify;
+    &:after {display:inline-block; overflow:hidden; width:100%; height:0; content:''; vertical-align:top; } 
+}
+
+// 文字超出截断
+%ellipsis {
+    overflow: hidden;text-overflow: ellipsis; white-space:nowrap;*white-space:default; -ms-word-break: break-all; word-break: break-all;
+}
+
+// 垂直居中
+%center-v {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+}

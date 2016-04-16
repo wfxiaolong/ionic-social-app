@@ -1,0 +1,35 @@
+<ion-header-bar align-title="center" class="bar-stable">
+  <div class="buttons">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+    </button>
+  </div>
+  <div class="h1 title login-title" >创建群组</div>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+    <div class="list card">
+      <div class="blank-h12"></div>
+      <div class="logo-wrap  text-center ">
+        <span class="logo">
+          <img  src="img/ionic.png" alt="">
+        </span>
+      </div>
+      <div class="blank-h12"></div>
+      <div class="blank-h12"></div>
+      <input class="act-cell-title" type="text" placeholder="添加创建群组名称">
+      <div class="blank-h12"></div>
+      <div class="item item-divider">
+        <p>选择类型</p>
+      </div>
+      <div class="item" style="padding: 4px;">
+        <ion-list>
+          <ion-radio ng-model="choice" ng-value="'0'">秘密</ion-radio>
+          <ion-radio ng-model="choice" ng-value="'1'">公开</ion-radio>
+        </ion-list>
+      </div>
+      <button class="button button-block button-positive">
+        创建群组
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

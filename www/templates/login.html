@@ -1,0 +1,50 @@
+<ion-header-bar align-title="center" class="bar-stable">
+  <div class="buttons">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+    </button>
+  </div>
+  <div class="h1 title login-title" title="登录">登录</div>
+  <div class="buttons">
+    <a class="button login-register" ui-sref="register">
+      注册
+    </a>
+  </div>
+</ion-header-bar>
+<ion-content  has-bouncing="true" overflow-scroll="false">
+  <div class="login-mian" >
+    <div class="login-content">
+      <div class="blank-h12"></div>
+      <div class="logo-wrap  text-center ">
+        <span class="logo">
+          <img  src="img/ionic.png" alt="">
+        </span>
+      </div>
+      <div class="blank-h12"></div>
+      <div class="input-wrap row row-center">
+        <label  class="left-icon-wrap">
+          <i class="ion ion-iphone"></i>
+        </label>
+        <input type="tel" class="col login-input" placeholder="请输入手机号" ng-model="user.name" maxlength="11">
+      </div>
+      <div class="input-wrap row row-center mt-20">
+        <label  class="left-icon-wrap">
+          <i class="icon icon-psw"></i>
+        </label>
+        <input type="{{show_psd ? 'text' : 'password'}}"  class="col login-input" placeholder="请输入密码" ng-model="user.password" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+        <button class="psd-control" ng-click="showPassword()">
+          <i class="icon  {{show_psd ? 'icon-psddisvisiable' : 'icon-psdvisiable'}} " ></i>
+        </button>
+      </div>
+      <div class="blank-h12"></div>
+      <div class=" text-right ">
+        <a href="" class="forget-passw" ui-sref="findpsw">忘记密码</a>
+      </div>
+      <div class="blank-h12"></div>
+      <button class="button button-block  button-positive " ng-click="login()">
+        登录
+      </button>
+    </div>
+
+
+  </div>
+</ion-content>

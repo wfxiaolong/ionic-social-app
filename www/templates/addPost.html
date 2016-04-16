@@ -1,0 +1,37 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div class="h1 title login-title" >发帖</div>
+    <div class="buttons">
+      <a class="button login-register" ng-click="add()">
+        发布
+      </a>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content>
+        <div class="list card">
+            <h5>&nbsp;&nbsp;分享至：</h5>
+            <div class="item"style="padding: 4px;">
+                <div class="row" >
+                    <div class="col group-cell-select gact">小组</div>
+                    <div class="col group-cell-select">小天</div>
+                    <div class="col group-cell-select">小米</div>
+                </div>
+            </div>
+            <textarea style="width: 100%;background-color: whitesmoke" placeholder="这里输入发布帖子内容" cols="30" rows="10"></textarea>
+            <img class="full-image" src="img/ben.png">
+            <h5>&nbsp;&nbsp;插入信息：</h5>
+            <div class="item"style="padding: 4px;">
+                <div class="row" >
+                    <div class="col group-cell-select">符号</div>
+                    <div class="col group-cell-select">图片</div>
+                    <div class="col group-cell-select">表情</div>
+                    <div class="col group-cell-select">字体</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

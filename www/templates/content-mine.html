@@ -1,0 +1,47 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div ng-switch="type">
+        <div ng-switch-when="invite">
+            <div class="h1 title login-title" >邀请规则</div>
+        </div>
+        <div ng-switch-when="about">
+            <div class="h1 title login-title" >关于我们</div>
+        </div>
+        <div ng-switch-when="user">
+            <div class="h1 title login-title" >用户须知</div>
+        </div>
+        <div ng-switch-when="userprotocol">
+            <div class="h1 title login-title" >用户协议</div>
+        </div>
+        <div ng-switch-when="private">
+            <div class="h1 title login-title" >隐私政策</div>
+        </div>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content>
+        <p ng-switch="type">
+            <span ng-switch-when="invite">
+               邀请规则协议文档...
+            </span>
+            <span ng-switch-when="about">
+              邀请规则协议文档协议文档...
+            </span>
+            <span ng-switch-when="user">
+               用户须知协议文档...
+            </span>
+            <span ng-switch-when="userprotocol">
+               邀请规则协议文档...
+            </span>
+            <span ng-switch-when="private">
+               隐私政策协议文档...
+            </span>
+            <span ng-switch-default>
+               其他内容
+            </span>
+        </p>
+    </ion-content>
+</ion-view>

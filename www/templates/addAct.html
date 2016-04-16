@@ -1,0 +1,60 @@
+<ion-header-bar align-title="center" class="bar-stable">
+  <div class="buttons">
+    <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+    </button>
+  </div>
+  <div class="h1 title login-title" >创建活动</div>
+  <div class="buttons">
+    <a class="button login-register" ng-click="add()">
+      创建
+    </a>
+  </div>
+</ion-header-bar>
+<ion-view>
+  <ion-content>
+    <div class="list card">
+      <h5>&nbsp;&nbsp;选择标签：</h5>
+      <div class="item" style="padding: 4px;">
+        <div class="row" >
+          <div class="col group-cell-select gact">social</div>
+          <div class="col group-cell-select">扩展</div>
+          <div class="col group-cell-select">野外</div>
+          <div class="col group-cell-select">室内</div>
+          <div class="col group-cell-select">其他</div>
+        </div>
+      </div>
+      <input class="act-cell-title" type="text" placeholder="活动标题">
+      <div class="item act-cell-padding">
+        <span>开始时间</span>
+        <input type="date" class="act-cell-input">
+      </div>
+      <div class="item act-cell-padding">
+        <span>结束时间</span>
+        <input type="date" class="act-cell-input">
+      </div>
+      <div class="item act-cell-padding">
+        <span>人数</span>
+        <input type="text" class="act-cell-input" placeholder="输入活动预计人数">
+      </div>
+      <div class="item act-cell-padding">
+        <span>费用</span>
+        <input type="text" class="act-cell-input" placeholder="输入活动预计费用">
+      </div>
+      <div class="item act-cell-padding">
+        <span>地点</span>
+        <input type="text" class="act-cell-input" placeholder="输入活动地址">
+      </div>
+      <textarea style="width: 100%;background-color: whitesmoke" placeholder="这里输入活动介绍内容" cols="30" rows="10"></textarea>
+      <img class="full-image" src="img/ben.png">
+      <h5>&nbsp;&nbsp;插入信息：</h5>
+      <div class="item"style="padding: 4px;">
+        <div class="row" >
+          <div class="col group-cell-select">符号</div>
+          <div class="col group-cell-select">图片</div>
+          <div class="col group-cell-select">表情</div>
+          <div class="col group-cell-select">字体</div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

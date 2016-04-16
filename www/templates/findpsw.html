@@ -1,0 +1,46 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div class="h1 title login-title" >找回密码</div>
+</ion-header-bar>
+<ion-content  has-bouncing="true" overflow-scroll="true">
+  <div class="login-mian">
+    <div class="register-content">
+
+      <div class="input-wrap row row-center">
+        <label  class="left-icon-wrap">
+          <i class="ion ion-iphone"></i>
+        </label>
+        <input type="tel" class="col login-input" placeholder="请输入手机号">
+      </div>
+      <div class="input-wrap row row-center mt-20">
+        <label  class="left-icon-wrap">
+          <i class="icon icon-psw"></i>
+        </label>
+        <input type="{{show_psd ? 'text' : 'password'}}"  class="col login-input" placeholder="请输入新密码" ng-model="user.password" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+        <button class="psd-control" ng-click="showPassword()">
+          <i class="icon icon-psdvisiable" ng-show="!show_psd"></i>
+          <i class="icon icon-psddisvisiable " ng-show="show_psd"></i>
+        </button>
+      </div>
+      <div class="input-wrap row row-center mt-20">
+        <label  class="left-icon-wrap">
+          <i class="icon ion-ios-email-outline"></i>
+        </label>
+        <input type="text" class="col login-input" placeholder="请输入验证码">
+        <button class="psd-control">
+          <div class="button-verification-code">
+           获取验证码
+          </div>
+        </button>
+      </div>
+      <p class="text">如果您未接收到验证码，请检查手机是否设置短信拦截</p>
+      <div class="blank-h12"></div>
+      <button class="button button-block  button-positive" ng-click="comfirm()">
+        重置密码
+      </button>
+    </div>
+  </div>
+</ion-content>

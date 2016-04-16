@@ -1,0 +1,46 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div class="h1 title login-title" >举报</div>
+</ion-header-bar>
+<ion-view>
+    <ion-content>
+        <div class="list">
+            <ion-item class="mine-item item" ng-click="changeType(0)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==0"></i>
+                <p class="mine-lab-lonely">广告</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(1)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==1"></i>
+                <p class="mine-lab-lonely">政治</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(2)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==2"></i>
+                <p class="mine-lab-lonely">色情</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(3)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==3"></i>
+                <p class="mine-lab-lonely">内容有欺诈嫌疑</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(4)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==4"></i>
+                <p class="mine-lab-lonely">含有可能泄露隐私的信息</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(5)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==5"></i>
+                <p class="mine-lab-lonely">反感</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(6)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==6"></i>
+                <p class="mine-lab-lonely">侮辱谩骂</p>
+            </ion-item>
+            <ion-item class="mine-item item" ng-click="changeType(7)">
+                <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==7"></i>
+                <p class="mine-lab-lonely">重复发言</p>
+            </ion-item>
+        </div>
+    </ion-content>
+
+</ion-view>

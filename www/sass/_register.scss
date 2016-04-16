@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+.button-back {
+	align-self: center;
+	font-size: xx-large;
+}
+.register-content {
+	margin-top: dp(20);
+	padding:0 dp(20);
+  width:100%;
+  .button-verification-code {
+  	background-color: #e33d3c;
+  	color: #fff;
+  	border-radius: 5px;
+  	padding: dp(10);
+  }
+  .text {
+  	color: #999;
+  	font-size: dp(22);
+  }
+  .link-text {
+  	color: #1974ad;
+  	font-size: dp(22);
+  	text-decoration: none;
+  }
+}

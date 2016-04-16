@@ -1,0 +1,111 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div style="position: relative;width: 100%; top: 8px;left: 0px;height: 28px;width: 100%;background-color:transparent;">
+        <a class="subdued" style="position: absolute;left: 4px;bottom: 5px;color: #435356;border: 0;" href="#/tab/location" >
+            <span style="border: 0;font-size: 12px;">北京市<i class="icon ion-chevron-down"></i></span>
+        </a>
+        <a class="select-item" ng-class="{activities : type == 'discovery'}" ng-click="changeType(0)" style="border-radius: 28px 0 0 28px;right: 50%;">
+            发现
+        </a>
+        <a class="select-item" ng-class="{activities : type == 'location'}" ng-click="changeType(1)" style="border-radius: 0 28px 28px 0px;left: 50%;">
+            附近
+        </a>
+        <a class="icon ion-ios-search-strong" href="#/tab/search" style="color: #435356;font-size: 28px;position: absolute;right: 10px;bottom: 0px;"></a>
+    </div>
+</ion-header-bar>
+<ion-view>
+    <ion-content has-bouncing="true" overflow-scroll="false">
+        <ion-refresher on-refresh="doRefresh()" pulling-text="下拉刷新" refreshing-text="正在刷新" refreshing-icon="ion-loading-b"></ion-refresher>
+        <div class="content" style="overflow: inherit">
+            <!-- 发现页面-->
+            <div ng-if="type == 'discovery'">
+                <div class="list card">
+                    <div class="item item-avatar">
+                        <img src="img/mike.png">
+                        <h2>Marty</h2>
+                        <p>
+                            <a href="#" class="subdued">关注：300</a>
+                            <a href="#" class="subdued">粉丝：300</a>
+                            <p href="#" class="subdued">北京市，朝阳区，天通苑</p>
+                        </p>
+                    </div>
+                    <a class="item item-body" href="#/tab/postMsg">
+                        <ion-slide-box slide-interval="100" does-continue="true" show-pager="false">
+                            <ion-slide>
+                                <img class="full-image" src="img/ben.png">
+                            </ion-slide>
+                            <ion-slide>
+                                <img class="full-image" src="img/ben.png">
+                            </ion-slide>
+                        </ion-slide-box>
+                        <span class="dm-nowrap-2" style="font-size: 12px">
+                            人生苦短，我用python！人生苦短，我用golang！人生苦短，我用golang！人生苦短，我用golang！
+                        </span>
+                    </a>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-thumbsup"></i>点赞(330)
+                        </a>
+                        <a class="tab-item" href="#/tab/postMsg">
+                            <i class="icon ion-chatbox"></i>评论(300)
+                        </a>
+                        <a class="tab-item" href="#/tab/giveup">
+                            <i class="icon ion-sad"></i>举报(1)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 附近页面-->
+            <div ng-if="type == 'location'" style="z-index: 5;">
+                <div class="row" style="border-bottom: 1px solid lightgray;">
+                    <div class="col tabs-striped">
+                        <div class="col-demo main-select" ng-class="{activity : act == 'activity'}" ng-click="changeAct(0)">活动</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-demo main-select" ng-class="{activity : act == 'personal'}" ng-click="changeAct(1)">个人</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-demo main-select" ng-class="{activity : act == 'group'}" ng-click="changeAct(2)">群</div>
+                    </div>
+                </div>
+
+                <!-- 活动列表-->
+                <div ng-if="act == 'activity'">
+                    <div class="backgound-default group-list">
+                        <a href="#/tab/actMsg">
+                            <img class="img-default group-img" src="img/perry.png">
+                            <span class="group-title dm-nowrap-1">天通苑书画学习班 周末上课</span>
+                            <span class="group-position dm-nowrap-1">广州大学城广中医</span>
+                            <span class="group-distance"><400米</span>
+                            <span class="group-member">组员：200</span>
+                            <span class="group-fun">粉丝：300</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 个人列表-->
+                <div ng-if="act == 'personal'">
+                    <div class="backgound-default group-list">
+                        <img class="img-default group-img" src="img/perry.png">
+                        <span class="group-title dm-nowrap-1">小智</span>
+                        <span class="group-distance"><400米</span>
+                        <span class="group-member">关注：200</span>
+                        <span class="group-fun">粉丝：300</span>
+                    </div>
+                </div>
+
+                <!-- 群列表-->
+                <div ng-if="act == 'group'">
+                    <div class="backgound-default group-list">
+                        <img class="img-default group-img" src="img/max.png">
+                        <span class="group-title dm-nowrap-1">少年足球队</span>
+                        <span class="group-distance">>400米</span>
+                        <span class="group-member">组员：200</span>
+                        <span class="group-fun">粉丝：300</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

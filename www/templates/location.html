@@ -1,0 +1,20 @@
+<ion-header-bar align-title="center" class="bar-stable">
+    <div class="buttons">
+        <button class="button button-icon ion-ios-arrow-left" ng-click="$ionicGoBack()">
+        </button>
+    </div>
+    <div class="h1 title login-title" >地区选择</div>
+</ion-header-bar>
+<ion-view>
+    <ion-content>
+        <div class="list">
+            <div ng-repeat="item in city_json">
+                <ion-item class="mine-item item" ng-click="changeType($index)">
+                    <i class="icon ion-ios-checkmark-empty mine-right" ng-show="type==$index"></i>
+                    <p class="mine-lab-lonely">{{item.n}}</p>
+                </ion-item>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>
