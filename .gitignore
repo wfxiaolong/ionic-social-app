@@ -5,4 +5,5 @@ node_modules/
 platforms/
 .idea/
 *.swp
-~$change1.xlsx
+.DS_Store
+

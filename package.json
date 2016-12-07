@@ -1,7 +1,7 @@
 {
-  "name": "doctor",
+  "name": "social",
   "version": "1.1.1",
-  "description": "doctor: An Ionic project",
+  "description": "social: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -20,13 +20,7 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard",
-    "cordova-plugin-dialogs",
-    {
-      "id": "http://schemas.android.com/apk/res/android\"><name>communicate</name><js-module name=\"communicate\" src=\"www/communicate.js\"><clobbers target=\"cordova.plugins.communicate\" /></js-module><platform name=\"android\"><config-file parent=\"/*\" target=\"res/xml/config.xml\"><feature name=\"communicate\"><param name=\"android-package\" value=\"com.damai.communicate.communicate\" /></feature></config-file><config-file parent=\"/*\" target=\"AndroidManifest.xml\" /><source-file src=\"src/android/communicate.java\" target-dir=\"src/com/damai/communicate/communicate\" /></platform><platform name=\"ios\"><config-file parent=\"/*\" target=\"config.xml\"><feature name=\"communicate\"><param name=\"ios-package\" value=\"communicate\" /></feature></config-file><source-file src=\"src/ios/communicate.m",
-      "locator": "E:/php/plugins/communicate"
-    },
-    "cordova-plugin-wechat"
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": []
 }
