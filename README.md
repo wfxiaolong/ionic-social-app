@@ -1,5 +1,5 @@
 # ionic-social-app
-<hr>
+
 ionic app social -- a free app as demo to learn ionic...</br>
 ionic is a web framework for us to develop web apps ...</br>
 bla bla bla...</br>
@@ -23,7 +23,7 @@ bla bla bla...</br>
 <a href="http://www.cnblogs.com/Lxiaolong/p/5399008.html">**中文教程Blog**</a>
 
 #License
-<hr>
+
 Social is open source and covered by a standard 2-clause BSD license. See the LICENSE file for more info.
 
 Social is Free Software licensed under the GNU General Public License.
